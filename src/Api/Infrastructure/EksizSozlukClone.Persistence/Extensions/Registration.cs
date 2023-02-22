@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EksiSozlukClone.Core.Application.Interface.Repositories;
+using EksizSozlukClone.Infrastructure.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,7 +24,7 @@ namespace EksizSozlukClone.Infrastructure.Persistence.Extensions
                     opt.EnableRetryOnFailure();
                 });
             });
-
+            services.AddScoped<IUserRepository, UserRepository>();
 
        //     var seedData = new SeedData();
          //    seedData.SeedAsync(configuration).GetAwaiter().GetResult();
