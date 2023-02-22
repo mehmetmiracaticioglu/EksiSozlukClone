@@ -23,15 +23,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D1727D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Common", "src\Common\EksiSozlukClone.Common\EksiSozlukClone.Common.csproj", "{1BC7178D-44EA-42B7-94B9-06E31FAFF6A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Domain", "src\Api\Core\EksiSozlukClone.Domain\EksiSozlukClone.Domain.csproj", "{E2228630-4027-417D-BDBB-4956D84AAFCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Core.Domain", "src\Api\Core\EksiSozlukClone.Domain\EksiSozlukClone.Core.Domain.csproj", "{E2228630-4027-417D-BDBB-4956D84AAFCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Application", "src\Api\Core\EksiSozlukClone.Application\EksiSozlukClone.Application.csproj", "{E3E1782A-8E06-4B33-8669-5F88ABB9D324}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Core.Application", "src\Api\Core\EksiSozlukClone.Application\EksiSozlukClone.Core.Application.csproj", "{E3E1782A-8E06-4B33-8669-5F88ABB9D324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksizSozlukClone.Persistence", "src\Api\Infrastructure\EksizSozlukClone.Persistence\EksizSozlukClone.Persistence.csproj", "{AD2ACC95-0819-42D5-BDBC-121009B08ECC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksizSozlukClone.Infrastructure.Persistence", "src\Api\Infrastructure\EksizSozlukClone.Persistence\EksizSozlukClone.Infrastructure.Persistence.csproj", "{AD2ACC95-0819-42D5-BDBC-121009B08ECC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Api.WebAPI", "src\Api\WebApi\EksiSozlukClone.Api.WebAPI\EksiSozlukClone.Api.WebAPI.csproj", "{24174889-35E7-4B82-BD21-00084EC79AD4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Projections.FavoriteService", "src\Projections\EksiSozlukClone.Projections.FavoriteService\EksiSozlukClone.Projections.FavoriteService.csproj", "{573751B1-A173-4958-8794-ED15CB2C8C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Projections.VoteService", "src\Projections\EksiSozlukClone.Projections.VoteService\EksiSozlukClone.Projections.VoteService.csproj", "{81708800-8078-40D5-AC80-134C596B7F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.Projections.UserService", "src\Projections\EksiSozlukClone.Projections.UserService\EksiSozlukClone.Projections.UserService.csproj", "{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozlukClone.WebApp", "src\Clients\Blazor\EksiSozlukClone.WebApp\EksiSozlukClone.WebApp.csproj", "{7CBFBCAA-0895-486F-ADC2-F6580DA68F44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{573751B1-A173-4958-8794-ED15CB2C8C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{573751B1-A173-4958-8794-ED15CB2C8C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{573751B1-A173-4958-8794-ED15CB2C8C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81708800-8078-40D5-AC80-134C596B7F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81708800-8078-40D5-AC80-134C596B7F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81708800-8078-40D5-AC80-134C596B7F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81708800-8078-40D5-AC80-134C596B7F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CBFBCAA-0895-486F-ADC2-F6580DA68F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBFBCAA-0895-486F-ADC2-F6580DA68F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBFBCAA-0895-486F-ADC2-F6580DA68F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBFBCAA-0895-486F-ADC2-F6580DA68F44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +100,9 @@ Global
 		{AD2ACC95-0819-42D5-BDBC-121009B08ECC} = {85826EBA-9239-4C2B-A53A-5C16840DB023}
 		{24174889-35E7-4B82-BD21-00084EC79AD4} = {F8964B8D-0059-4FA2-AEA4-70696E13C91F}
 		{573751B1-A173-4958-8794-ED15CB2C8C92} = {463DE98A-184A-46AF-A8E7-01B315E58A39}
+		{81708800-8078-40D5-AC80-134C596B7F1F} = {463DE98A-184A-46AF-A8E7-01B315E58A39}
+		{71F14EC5-1B88-4230-BD4E-9FF6E6D9792A} = {463DE98A-184A-46AF-A8E7-01B315E58A39}
+		{7CBFBCAA-0895-486F-ADC2-F6580DA68F44} = {55CE6691-8EB0-492F-8DAC-38962F292F41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E78A485-52F3-472B-BCFF-4BA91B5C484B}
