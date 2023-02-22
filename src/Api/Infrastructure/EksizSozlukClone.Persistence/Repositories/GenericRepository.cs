@@ -15,11 +15,11 @@ namespace EksizSozlukClone.Infrastructure.Persistence.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
 
-        private readonly EksiSozlukCloneContext dbContex;
+        private readonly DbContext dbContex;
         protected DbSet<T> entity => dbContex.Set<T>();
-        public GenericRepository(EksiSozlukCloneContext dbContex)
-        {
-            this.dbContex = dbContex;
+        public GenericRepository(DbContext dbContex)
+        { 
+            this.dbContex = dbContex ?? throw new ArgumentNullException(nameof(dbContex));
         }
 
         public virtual int Add(T entity)
@@ -146,13 +146,13 @@ namespace EksizSozlukClone.Infrastructure.Persistence.Repositories
 
         public virtual bool DeleteRange(Expression<Func<T, bool>> predicate)
         {
-           dbContex.RemoveRange(predicate);
+           dbContex.RemoveRange(entity.Where(predicate));
             return dbContex.SaveChanges() > 0;  
         }
 
         public virtual async Task<bool> DeleteRangeAsync(Expression<Func<T, bool>> predicate)
         {
-            dbContex.RemoveRange(predicate);
+            dbContex.RemoveRange(entity.Where(predicate));
             return await dbContex.SaveChangesAsync() > 0;
         }
 
