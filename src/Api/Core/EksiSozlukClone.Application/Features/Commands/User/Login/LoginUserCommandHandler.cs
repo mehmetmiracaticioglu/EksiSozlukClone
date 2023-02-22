@@ -15,7 +15,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiSozlukClone.Core.Application.Features.Commands.User
+namespace EksiSozlukClone.Core.Application.Features.Commands.User.Login
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUserViewModel>
     {
@@ -40,8 +40,8 @@ namespace EksiSozlukClone.Core.Application.Features.Commands.User
             }
 
             var pass = PasswordEncryptor.Encrypt(request.Password);
-            
-            if (dbUser.Password!=pass || dbUser.EmailAdress!=request.EmailAdress)
+
+            if (dbUser.Password != pass || dbUser.EmailAdress != request.EmailAdress)
             {
                 throw new DatabaseValidationExceptions("Password or Email are wrong!");
             }
@@ -63,7 +63,7 @@ namespace EksiSozlukClone.Core.Application.Features.Commands.User
 
             return result;
 
-            
+
 
         }
 
@@ -78,7 +78,7 @@ namespace EksiSozlukClone.Core.Application.Features.Commands.User
                 signingCredentials: creds,
                 notBefore: DateTime.Now
                 );
-            return new JwtSecurityTokenHandler().WriteToken(token); 
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
