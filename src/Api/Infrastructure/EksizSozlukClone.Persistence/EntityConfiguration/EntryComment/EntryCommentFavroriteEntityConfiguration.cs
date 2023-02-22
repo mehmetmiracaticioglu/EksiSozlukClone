@@ -1,4 +1,5 @@
 ﻿using EksiSozlukClone.Core.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,8 @@ namespace EksizSozlukClone.Infrastructure.Persistence.EntityConfiguration.Entry
 
             builder.HasOne(i => i.CreatedUser)
                 .WithMany(i => i.EntryCommentFavorites)
-                .HasForeignKey(i => i.CreatedById);
+                .HasForeignKey(i => i.CreatedById)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

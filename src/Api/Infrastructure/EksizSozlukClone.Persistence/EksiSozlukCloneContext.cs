@@ -1,5 +1,6 @@
 ﻿using EksiSozlukClone.Core.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace EksizSozlukClone.Infrastructure.Persistence
 {
     public class EksiSozlukCloneContext:DbContext
     {
+        public EksiSozlukCloneContext()
+        {
+
+        }
         public EksiSozlukCloneContext(DbContextOptions options ):base(options)
         {
         }
@@ -24,6 +29,19 @@ namespace EksizSozlukClone.Infrastructure.Persistence
 
         public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                var conStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=eksisozlukclone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                optionsBuilder.UseSqlServer(conStr, opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                });
+            }
+            base.OnConfiguring(optionsBuilder);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());  
