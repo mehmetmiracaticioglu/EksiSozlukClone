@@ -19,7 +19,7 @@ namespace EksiSozlukClone.Common.Infrastructre
         {
             var channel = CreateBasicConsumer()
                 .EnsureExchange(exchangeName,exchangeType)
-                .EnsureQueue(queueName,queueName)
+                .EnsureQueue(queueName, exchangeName)
                 .Model;
 
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));

@@ -26,7 +26,7 @@ namespace EksiSozlukClone.Core.Application.Features.Commands.User.Create
 
         public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-           var existUser= await userRepository.GetSingleAsync(i=>i.EmailAdress.Equals(request.EmailAdress));
+           var existUser= await userRepository.GetSingleAsync(i=>i.EmailAdress ==request.EmailAdress);
            
             if (existUser is not null) {
                 throw new DatabaseValidationExceptions("User AldreadyExist");

@@ -1,4 +1,5 @@
 ﻿using EksiSozlukClone.Common.Models.RequestModels;
+using EksiSozlukClone.Core.Application.Features.Commands.User.Create;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,17 @@ namespace EksiSozlukClone.Api.WebAPI.Controller
         {
                 this.mediator = mediator;   
         }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
+        {
+            var res = await mediator.Send(command);
+            return Ok(res);
+        }
 
 
         [HttpPost]
-        [Route("login") ]
-
-        public async Task<IActionResult> Login([FromBody]LoginUserCommand command)
+        [Route("update") ]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
             var res = await mediator.Send(command);
             return Ok(res);
