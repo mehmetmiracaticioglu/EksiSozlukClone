@@ -48,7 +48,7 @@ namespace EksiSozlukClone.Core.Application.Features.Commands.User.Update
 
                 };
 
-                QueueFactory.SendMessage(exchangeName: SozlukConstants.UserExchangeName, exchangeType: SozlukConstants.DefaultExchangeType, queueName: SozlukConstants.UserEmailChangedQueueName, obj: @event);
+                QueueFactory.SendMessageToExchange(exchangeName: SozlukConstants.UserExchangeName, exchangeType: SozlukConstants.DefaultExchangeType, queueName: SozlukConstants.UserEmailChangedQueueName, obj: @event);
                 dbUser.EmailConfirmed = false;
                 await userRepository.UpdateAsync(dbUser);
                  

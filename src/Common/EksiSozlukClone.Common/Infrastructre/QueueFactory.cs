@@ -12,10 +12,10 @@ namespace EksiSozlukClone.Common.Infrastructre
 {
     public static class QueueFactory
     {
-        public static void SendMessage(string exchangeName
-            , string exchangeType
-            ,string queueName
-            ,object obj)
+        public static void SendMessageToExchange(string exchangeName
+                                                ,string exchangeType
+                                                ,string queueName
+                                                ,object obj)
         {
             var channel = CreateBasicConsumer()
                 .EnsureExchange(exchangeName,exchangeType)
@@ -46,7 +46,10 @@ namespace EksiSozlukClone.Common.Infrastructre
                                                             string exchangeName,
                                                             string exchangeType = SozlukConstants.DefaultExchangeType)
         {
-            consumer.Model.ExchangeDeclare(exchangeName,exchangeType, durable:false,autoDelete:false);
+            consumer.Model.ExchangeDeclare(exchange:exchangeName,
+                                            type:exchangeType, 
+                                            durable:false,
+                                            autoDelete:false);
             return consumer;
         }
 
@@ -54,7 +57,7 @@ namespace EksiSozlukClone.Common.Infrastructre
                                                            string queueName,
                                                            string exchangeName)
         {
-            consumer.Model.QueueDeclare(queue: queueName, exclusive:false, durable: false, autoDelete: false);
+            consumer.Model.QueueDeclare(queue: queueName, durable: false, exclusive:false, autoDelete: false,null);
 
             consumer.Model.QueueBind(queueName, exchangeName,queueName);
             return consumer;

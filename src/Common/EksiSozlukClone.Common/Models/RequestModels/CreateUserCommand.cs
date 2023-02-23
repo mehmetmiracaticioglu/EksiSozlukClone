@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiSozlukClone.Core.Application.Features.Commands.User.Create;
+namespace EksiSozlukClone.Common.Models.RequestModels.Core.Application.Features.Commands.User.Create;
 
 public class CreateUserCommand : IRequest<Guid>
 {

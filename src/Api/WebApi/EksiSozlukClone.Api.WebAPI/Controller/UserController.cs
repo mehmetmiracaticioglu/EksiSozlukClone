@@ -1,4 +1,5 @@
 ﻿using EksiSozlukClone.Common.Models.RequestModels;
+using EksiSozlukClone.Common.Models.RequestModels.Core.Application.Features.Commands.User.Create;
 using EksiSozlukClone.Core.Application.Features.Commands.User.Create;
 using MediatR;
 using Microsoft.AspNetCore.Http;
